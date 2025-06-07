@@ -1,0 +1,44 @@
+import express from "express";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import mongoose from "mongoose";
+import cors from "cors";
+import connectDB from "./utils/db.js";
+
+dotenv.config();
+
+const app = express();
+
+// midlleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+// cors is used to allow the frontend to access the backend
+const corsOptions = {
+    origin: "http://localhost:5173",
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+
+
+app.get("/home",(req,res)=> {
+    return res.json({
+        message : "Iam coming from backend",
+        success : true,
+    })
+})
+
+
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    connectDB();
+    console.log(`Server is running on port ${port}`);
+});
+
+
+
