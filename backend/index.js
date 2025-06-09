@@ -4,6 +4,9 @@ import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import connectDB from "./utils/db.js";
+import userRoutes from "./routes/userRoute.js";
+import companyRoutes from "./routes/companyRoute.js";
+import jobRoutes from "./routes/jobRoute.js";
 
 dotenv.config();
 
@@ -24,13 +27,19 @@ app.use(cors(corsOptions));
 
 
 
+
+// routes
+app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/company", companyRoutes);
+app.use("/api/v1/job", jobRoutes);
+
+
 app.get("/home",(req,res)=> {
     return res.json({
         message : "Iam coming from backend",
         success : true,
     })
 })
-
 
 
 const port = process.env.PORT || 3000;
