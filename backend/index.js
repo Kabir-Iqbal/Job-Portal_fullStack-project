@@ -7,6 +7,7 @@ import connectDB from "./utils/db.js";
 import userRoutes from "./routes/userRoute.js";
 import companyRoutes from "./routes/companyRoute.js";
 import jobRoutes from "./routes/jobRoute.js";
+import applicationRoutes from "./routes/applicationRoute.js";
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use(cors(corsOptions));
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/company", companyRoutes);
 app.use("/api/v1/job", jobRoutes);
+app.use("/api/v1/application", applicationRoutes);
 
 
 app.get("/home",(req,res)=> {
