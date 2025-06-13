@@ -9,6 +9,7 @@ export const register = async (req, res) => {
     try {
         const {fullname, email, phonenumber, password, role} = req.body;
 
+        
         // check if all fields are provided
         if(!fullname || !email || !phonenumber || !password || !role){
             return res.status(400).json({
@@ -43,7 +44,7 @@ export const register = async (req, res) => {
 
     } catch (error) {
         return res.status(500).json({
-            message: "Internal server error",
+            message: error.message,
             success: false,
         });
     }
