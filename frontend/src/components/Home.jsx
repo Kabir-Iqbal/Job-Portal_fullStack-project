@@ -17,10 +17,10 @@ const Home = () => {
   const navigate = useNavigate()
 
   useEffect(()=>{
-    if (user.role === "recruiter") {
+    if (user?.role === "recruiter") {
       navigate('/admin/companies')
     }
-  })
+  },[user])
 
   return (
     <div>

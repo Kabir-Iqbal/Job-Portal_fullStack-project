@@ -9,6 +9,7 @@ import AppliedJobTable from "./AppliedJobTable";
 import { useState } from "react";
 import UpdateProfileDialog from "./updateProfile";
 import { useSelector } from "react-redux";
+import useGetAppliedJobs from "../hooks/useGetAppliedJobs";
 
 
 const skills = [
@@ -27,9 +28,12 @@ const Profile = () => {
 
     const isResume = true;
 
+    useGetAppliedJobs()
+
+
     const [open, setOpen] = useState(false);
     const { user } = useSelector((state) => state.auth);
-    console.log("user", user);
+   // console.log("user", user);
 
     // check if skills are availbe
     const skills = user?.profile?.skills || [];
@@ -60,15 +64,15 @@ const Profile = () => {
         <div className="my-5">
           <div className="flex items-center gap-3 my-2">
             <Mail />
-            <span>{user?.email}</span>
+            <span>{user?.email || "N/A"}</span>
           </div>
           <div className="flex items-center gap-3 my-2">
             <Phone />
-            <span>{user?.phonenumber}</span>
+            <span>{user?.phonenumber || "N/A"}</span>
           </div>
           <div className="flex items-center gap-3 my-2">
             <MapPin />
-            <span>Pakistan</span>
+            <span>{user?.profile?.location || "N/A"}</span>
           </div>
           <div className=" my-5">
             <h1 className="text-lg font-bold">Skills</h1>

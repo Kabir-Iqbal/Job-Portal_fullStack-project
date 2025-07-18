@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../../redux/authSlice";
 import { Loader2 } from "lucide-react";
+import { useEffect } from "react";
 
 const Signup = () => {
     const [input , setInput] = useState({
@@ -25,7 +26,7 @@ const Signup = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {loading} = useSelector(store => store.auth)
+    const {loading,user } = useSelector(store => store.auth)
 
 
     const handleChange = (e) => {
@@ -71,6 +72,13 @@ const Signup = () => {
             dispatch(setLoading(false))
         }
     }
+
+    
+  useEffect(()=>{
+    if (user) {
+      navigate('/')
+    }
+ },[])
 
   return (
     <div>

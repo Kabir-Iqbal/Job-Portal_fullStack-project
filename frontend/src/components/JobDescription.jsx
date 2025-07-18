@@ -93,15 +93,15 @@ const JobDescription = () => {
           </Button>
         </div>
       </div>
-      <h1 className="border-b-2 border-b-gray-200 font-medium py-4 ">{singleJob?.description} </h1>
+      <h1 className="border-b-2 border-b-gray-200 font-medium py-4 ">{singleJob?.description || "N/A"} </h1>
       <div className="my-4">
-        <h1 className="font-bold my-1">Role: <span className="pl-4 font-normal text-gray-800">{singleJob?.title} </span></h1>
-        <h1 className="font-bold my-1">Location: <span className="pl-4 font-normal text-gray-800">{singleJob?.location} </span></h1>
-        <h1 className="font-bold my-1">Description: <span className="pl-4 font-normal text-gray-800">{singleJob?.description}</span></h1>
-        <h1 className="font-bold my-1">Experience: <span className="pl-4 font-normal text-gray-800">{singleJob?.experience} years</span></h1>
-        <h1 className="font-bold my-1">Salary: <span className="pl-4 font-normal text-gray-800">{singleJob?.salary} </span></h1>
-        <h1 className="font-bold my-1">Total Applicants: <span className="pl-4 font-normal text-gray-800">{singleJob?.applications?.length} </span></h1>
-        <h1 className="font-bold my-1">Posted Date: <span className="pl-4 font-normal text-gray-800">{singleJob?.createdAt.split("T")[0]}</span></h1>
+        <h1 className="font-bold my-1">Role: <span className="pl-4 font-normal text-gray-800">{singleJob?.title || "No role provided"}  </span></h1>
+        <h1 className="font-bold my-1">Location: <span className="pl-4 font-normal text-gray-800">{singleJob?.location || "N/A"} </span></h1>
+        <h1 className="font-bold my-1">Description: <span className="pl-4 font-normal text-gray-800">{singleJob?.description || "N/A"}</span></h1>
+        <h1 className="font-bold my-1">Experience: <span className="pl-4 font-normal text-gray-800">{singleJob?.experience || "N/A"} years</span></h1>
+        <h1 className="font-bold my-1">Salary: <span className="pl-4 font-normal text-gray-800">{singleJob?.salary || "N/A"} </span></h1>
+        <h1 className="font-bold my-1">Total Applicants: <span className="pl-4 font-normal text-gray-800">{singleJob?.applications?.length || "N/A"} </span></h1>
+        <h1 className="font-bold my-1">Posted Date: <span className="pl-4 font-normal text-gray-800">{singleJob?.createdAt.split("T")[0] || "N/A"}</span></h1>
       </div>
     </div>
   );
