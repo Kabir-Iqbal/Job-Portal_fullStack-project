@@ -19,13 +19,13 @@ const CompaniesTable = () => {
     const navigate = useNavigate()
  
     useEffect(()=>{
-        const filteredCompany = companies.length > 0 && companies.filter((company)=>{
+        const filteredCompany = companies.length > 0 ?  companies.filter((company)=>{
             if (!searchCompanyByText) {      // if text is empty everything will show
                 return true 
             };
             return company?.name?.toLowerCase().includes(searchCompanyByText.toLowerCase())    // if text is availble then show only matched companies with text
 
-        });
+        }):[];
         setFilterCompany(filteredCompany)
     },[companies, searchCompanyByText])
     
@@ -48,19 +48,19 @@ const CompaniesTable = () => {
                             {
                                 filterCompany?.map((company) => {
                                     return (
-                                        <tr key={company._id}>
+                                        <tr key={company?._id}>
                                             <TableCell>
                                                 <Avatar>
-                                                    <AvatarImage src={company.logo} />
+                                                    <AvatarImage src={company?.logo} />
                                                 </Avatar>
                                             </TableCell>
-                                            <TableCell>{company.name}</TableCell>
+                                            <TableCell>{company?.name}</TableCell>
                                             <TableCell>{company.createdAt.split("T")[0]} </TableCell>
                                             <TableCell className='text-right cursor-pointer'>
                                                 <Popover>
                                                     <PopoverTrigger><MoreHorizontal /></PopoverTrigger>
                                                     <PopoverContent className="w-32">
-                                                        <div onClick={()=> navigate(`/admin/companies/${company._id}`)} className='flex items-center gap-2 w-fit cursor-pointer '>
+                                                        <div onClick={()=> navigate(`/admin/companies/${company?._id}`)} className='flex items-center gap-2 w-fit cursor-pointer '>
                                                             <Edit2 className='w-4 ' />
                                                             <span className='cursor-pointer'>Edit</span>
                                                         </div>

@@ -64,87 +64,94 @@ const Login = () => {
   },[])
 
   return (
-    <div>
-      <Navbar />
-      <div className="flex justify-center items-center mx-auto max-w-7xl">
-        <form
-          onSubmit={handleSubmit}
-          className="w-1/2 border border-gray-200 rounded-md p-4 gap-8 my-10"
-        >
-          <h1 className="font-bold text-xl mb-5">Login</h1>
-          <div className="my-2">
-            <Label>Email</Label>
-            <Input
-              type="email"
-              name="email"
-              onChange={handleChange}
-              value={input.email}
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className="my-2">
-            <Label>Password</Label>
-            <Input
-              type="password"
-              name="password"
-              onChange={handleChange}
-              value={input.password}
-              placeholder="Enter your password"
-            />
-          </div>
+    <div className="bg-gray-50 min-h-screen">
+    <Navbar />
+    <div className="flex justify-center items-center min-h-[80vh] px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 bg-white border border-gray-200 rounded-lg p-6 shadow-md"
+      >
+        <h1 className="font-bold text-2xl mb-6 text-center">Login</h1>
 
-          <div className="flex items-center justify-between">
-            <RadioGroup className="flex items-center gap-4 my-5">
-              <div className="flex items-center space-x-2">
-                <Input
-                  type="radio"
-                  id="student"
-                  name="role"
-                  value="student"
-                  checked={input.role === "student"}
-                  onChange={handleChange}
-                  className="cursor-pointer"
-                />
-                <Label htmlFor="student">Student</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Input
-                  type="radio"
-                  id="recruiter"
-                  name="role"
-                  value="recruiter"
-                  checked={input.role === "recruiter"}
-                  onChange={handleChange}
-                  className="cursor-pointer"
-                />
-                <Label htmlFor="recruiter">Recruiter</Label>
-              </div>
-            </RadioGroup>
-          </div>
+        <div className="mb-4">
+          <Label>Email</Label>
+          <Input
+            type="email"
+            name="email"
+            onChange={handleChange}
+            value={input.email}
+            placeholder="Enter your email"
+          />
+        </div>
 
+        <div className="mb-4">
+          <Label>Password</Label>
+          <Input
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={input.password}
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 my-5">
+          <RadioGroup className="flex gap-4">
+            <div className="flex items-center space-x-2">
+              <Input
+                type="radio"
+                id="student"
+                name="role"
+                value="student"
+                checked={input.role === "student"}
+                onChange={handleChange}
+                className="cursor-pointer"
+              />
+              <Label htmlFor="student">Student</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Input
+                type="radio"
+                id="recruiter"
+                name="role"
+                value="recruiter"
+                checked={input.role === "recruiter"}
+                onChange={handleChange}
+                className="cursor-pointer"
+              />
+              <Label htmlFor="recruiter">Recruiter</Label>
+            </div>
+          </RadioGroup>
+        </div>
+
+        <div className="mb-4">
           {loading ? (
-            <Button className="w-full bg-[#6A38C2]  hover:bg-[#5b30a6] cursor-pointer">
-              {" "}
-              <Loader2 className="w-full h-4  animate-spin"  />{" "}
+            <Button
+              type="button"
+              disabled
+              className="w-full bg-[#6A38C2] hover:bg-[#5b30a6] cursor-not-allowed"
+            >
+              <Loader2 className="w-5 h-5 animate-spin mx-auto" />
             </Button>
           ) : (
             <Button
               type="submit"
-              className="w-full bg-[#6A38C2]  hover:bg-[#5b30a6] cursor-pointer"
+              className="w-full bg-[#6A38C2] hover:bg-[#5b30a6] text-white"
             >
               Login
             </Button>
           )}
+        </div>
 
-          <p className="text-sm my-1 ">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-[#6A38C2]">
-              Signup
-            </Link>
-          </p>
-        </form>
-      </div>
+        <p className="text-sm text-center">
+          Don't have an account?{" "}
+          <Link to="/signup" className="text-[#6A38C2] hover:underline">
+            Signup
+          </Link>
+        </p>
+      </form>
     </div>
+  </div>
   );
 };
 

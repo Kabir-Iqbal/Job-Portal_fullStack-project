@@ -81,33 +81,33 @@ const Signup = () => {
  },[])
 
   return (
-    <div>
+    <div className="bg-gray-50 min-h-screen">
       <Navbar />
-      <div className="flex justify-center items-center mx-auto max-w-7xl">
+      <div className="flex justify-center items-center min-h-[90vh] my-6 px-4">
         <form
            onSubmit={handleSubmit}
-          className="w-1/2 border border-gray-200 rounded-md p-4 gap-8 my-10"
+          className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 bg-white border border-gray-200 rounded-lg p-6 shadow-md"
         >
-          <h1 className="font-bold text-xl mb-5">Sign Up</h1>
-          <div className="my-2">
+          <h1 className="font-bold text-2xl mb-6 text-center">Sign Up</h1>
+          <div className="mb-4">
             <Label>Full Name</Label>
             <Input type="text" name="fullName" onChange={handleChange} value={input.fullName} placeholder="Enter your full name" />
           </div>
-          <div className="my-2">
+          <div className="mb-4">
             <Label>Email</Label>
             <Input type="email" name="email" onChange={handleChange} value={input.email} placeholder="Enter your email" />
           </div>
-          <div className="my-2">
+          <div className="mb-4">
             <Label>Phone Number</Label>
             <Input type="number" name="phoneNumber" onChange={handleChange} value={input.phoneNumber} placeholder="Enter your phone number" />
           </div>
-          <div className="my-2">
+          <div className="mb-4">
             <Label>Password</Label>
             <Input type="password" name="password" onChange={handleChange} value={input.password} placeholder="Enter your password" />
           </div>
 
-          <div className="flex items-center justify-between">
-            <RadioGroup className="flex items-center gap-4 my-5">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 my-5">
+            <RadioGroup className="flex gap-4">
               <div className="flex items-center space-x-2">
                 <Input
                  type="radio" 

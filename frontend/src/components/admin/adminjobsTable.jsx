@@ -24,13 +24,13 @@ const AdminJobsTable = () => {
     useEffect(() => {
         if (!Array.isArray(allAdminJobs)) return;
 
-        const filteredCompany = allAdminJobs.length > 0 && allAdminJobs.filter((job) => {
+        const filteredCompany = allAdminJobs.length > 0 ? allAdminJobs.filter((job) => {
             if (!searchJobByText) {      // if text is empty everything will show
                 return true
             };
             return job?.title?.toLowerCase().includes(searchJobByText.toLowerCase()) || job?.company?.name?.toLowerCase().includes(searchJobByText.toLowerCase())  // if text is availble then show only matched companies with text
 
-        });
+        }):[];
         // console.log("filteredCompany", filteredCompany)
 
         setFilterJobs(filteredCompany)
