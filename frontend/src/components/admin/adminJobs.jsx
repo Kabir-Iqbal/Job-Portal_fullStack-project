@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import useGetAllAdminJobs from '../../hooks/useGetAllAdminJobs'
 import { SetSearchJobByText } from '../../redux/jobSlice'
 
-const AdminJobs = () => {
+const AdminJob = () => {
     useGetAllAdminJobs()
     const  navigate = useNavigate()
     const [filter, setFilter] = useState("")
@@ -38,4 +38,4 @@ const AdminJobs = () => {
     )
 }
 
-export default AdminJobs
+export default AdminJob
