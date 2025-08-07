@@ -10,7 +10,7 @@ import JobDescription from './components/JobDescription'
 import Companies from './components/admin/Companies'
 import CompanyCreate from './components/admin/CompanyCreate'
 import CompanySetup from './components/admin/CompanySetup'
-import AdminJob from "./components/admin/AdminJobs"
+import AdminJob from "./components/admin/Adminjobs"
 // import AdminJobsTable from './components/admin/adminjobsTable'
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
