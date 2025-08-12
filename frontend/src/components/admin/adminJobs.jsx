@@ -20,21 +20,30 @@ const AdminJob = () => {
     },[filter])
 
     return (
-        <div>
-            <Navbar />
-            <div className=' max-w-6xl mx-auto my-10'>
-                <div className='flex items-center justify-between'>
-                    <Input
-                        className='w-fit'
-                        placeholder='Filter by name, role' 
-                        onChange={(e)=> setFilter(e.target.value)}/>
-
-                    <Button onClick={()=> navigate("/admin/jobs/create") }> Post new Jobs</Button>
-                </div>
-                <AdminJobsTable />
-
+        <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <div className="flex-1 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto my-6 sm:my-10">
+            {/* Filter + Button */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
+              <Input
+                className="w-full sm:w-[300px]"
+                placeholder="Filter by name, role"
+                onChange={(e) => setFilter(e.target.value)}
+              />
+              <Button
+                className="w-full sm:w-auto"
+                onClick={() => navigate("/admin/jobs/create")}
+              >
+                Post new Jobs
+              </Button>
             </div>
+  
+            {/* Jobs Table */}
+            <AdminJobsTable />
+          </div>
         </div>
+      </div>
     )
 }
 

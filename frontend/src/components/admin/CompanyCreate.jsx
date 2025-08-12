@@ -43,27 +43,44 @@ const CompanyCreate = () => {
   }
 
   return (
-    <div>
+     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className='max-w-4xl mx-auto'>
-        <div className='my-10'>
-          <h1 className='font-bold text-2xl'>Your Company Name</h1>
-          <p className='text-gray-500'>What would you like to give your company name? you can change this later.</p>
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          {/* Heading */}
+          <div className="my-6 sm:my-10">
+            <h1 className="font-bold text-2xl sm:text-3xl">Your Company Name</h1>
+            <p className="text-gray-500 text-sm sm:text-base">
+              What would you like to give your company name? You can change this later.
+            </p>
+          </div>
 
+          {/* Input */}
+          <Label>Company Name</Label>
+          <Input
+            type="text"
+            className="my-2"
+            placeholder="JobHunt, Microsoft etc."
+            onChange={(e) => setCompanyName(e.target.value)}
+          />
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 my-8 sm:my-10">
+            <Button
+              onClick={() => navigate("/admin/companies")}
+              variant="outline"
+              className="w-full sm:w-auto"
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={registerCompany}
+              className="w-full sm:w-auto"
+            >
+              Continue
+            </Button>
+          </div>
         </div>
-
-        <Label>Company Name</Label>
-        <Input
-          type='text'
-          className='my-2'
-          placeholder='JobHunt, Microsoft etc.'
-          onChange={(e) => setCompanyName(e.target.value)} />
-
-        <div className='flex items-center gap-2 my-10'>
-          <Button onClick={()=> navigate("/admin/companies")} variant={'outline'}>Cancel</Button>
-          <Button onClick={registerCompany} >Continue</Button>
-        </div>
-
       </div>
     </div>
   )
