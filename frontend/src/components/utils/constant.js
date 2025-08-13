@@ -6,7 +6,7 @@
 
 
 // Base URLs
-const PROD_BASE_URL = "https://job-portal-full-stack-project-three.vercel.app/api/v1";
+const PROD_BASE_URL = "https://job-portal-backend-sand-seven.vercel.app/api/v1";
 const DEV_BASE_URL = "http://localhost:8000/api/v1";
 
 // Select base URL according to environment
