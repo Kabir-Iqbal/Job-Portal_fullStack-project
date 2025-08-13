@@ -10,7 +10,7 @@ import JobDescription from './components/JobDescription'
 import Companies from './components/admin/Companies'
 import CompanyCreate from './components/admin/CompanyCreate'
 import CompanySetup from './components/admin/CompanySetup'
-import AdminJob from "./components/admin/AdminJobs"
+// import AdminJob from "./components/admin/AdminJobs"
 // import AdminJobsTable from './components/admin/adminjobsTable'
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
@@ -64,10 +64,7 @@ const appRoute = createBrowserRouter([
     element : <ProtectiveRoute> <CompanySetup /> </ProtectiveRoute>
   },
   // admin jobs
-  {
-    path : "/admin/jobs",
-    element : <ProtectiveRoute> <AdminJob /> </ProtectiveRoute>
-  },
+ 
   {
     path : "/admin/jobs/create",
     element : <ProtectiveRoute> <PostJob /> </ProtectiveRoute>
