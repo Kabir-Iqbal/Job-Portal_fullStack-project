@@ -3,11 +3,11 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-import connectDB from "./utils/db.js";
-import userRoutes from "./routes/userRoute.js";
-import companyRoutes from "./routes/companyRoute.js";
-import jobRoutes from "./routes/jobRoute.js";
-import applicationRoutes from "./routes/applicationRoute.js";
+import connectDB from "../utils/db.js";
+import userRoutes from "../routes/userRoute.js";
+import companyRoutes from "../routes/companyRoute.js";
+import jobRoutes from "../routes/jobRoute.js";
+import applicationRoutes from "../routes/applicationRoute.js";
 
 dotenv.config();
 
