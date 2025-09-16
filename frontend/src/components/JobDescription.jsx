@@ -123,12 +123,17 @@ import { toast } from "sonner";
 const JobDescription = () => {
   const { user } = useSelector(state => state.auth);
   const { singleJob } = useSelector(state => state.job);
-  const isInitialApplied = singleJob?.applications?.some(application => application.applicant === user._id) || false;
+  const isInitialApplied = singleJob?.applications?.some(application => application.applicant === user?._id) || false;
   const [isApplied, setApplied] = useState(isInitialApplied);
 
   const params = useParams();
-  const jobId = params.id;
+  const jobId = params?.id;
   const dispatch = useDispatch();
+
+  // if user is not logged in, redirect to login page
+  if (!user) {
+    return <p>Please login to view job details</p>;
+  }
 
   const applyJobHandler = async () => {
     try {
@@ -150,14 +155,14 @@ const JobDescription = () => {
         const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`, { withCredentials: true });
         if (res.data.success) {
           dispatch(SetSingleJob(res.data.job));
-          setApplied(res.data.job.applications.some(application => application.applicant === user?._id));
+          setApplied(res.data.job.applications?.some(application => application?.applicant === user?._id));
         }
       } catch (error) {
         console.log(error);
       }
     };
     fetchSingleJob();
-  }, [jobId, dispatch, user._id]);
+  }, [jobId, dispatch, user?._id]);
 
   return (
     <div className="max-w-[90%] xxs:max-w-[95%] sm:max-w-5xl lg:max-w-7xl mx-auto my-6 xxs:my-8 sm:my-10 p-4 xxs:p-5 xs:p-6 sm:p-8 bg-white rounded-md shadow-lg border border-gray-100">
