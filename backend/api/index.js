@@ -75,7 +75,7 @@ app.use(cookieParser());
 
 // cors
 const corsOptions = {
-  origin: "https://jobportal.vercel.app/", // ✅ Vercel pe frontend ka exact domain daalna (example: https://your-frontend.vercel.app)
+  origin: "https://jobportal.vercel.app", // ✅ Vercel pe frontend ka exact domain daalna (example: https://your-frontend.vercel.app)
   credentials: true,
 };
 app.use(cors(corsOptions));
