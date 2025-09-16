@@ -13,7 +13,7 @@ const DEV_BASE_URL = "http://localhost:8000/api/v1";
 const BASE_URL = process.env.NODE_ENV === "production" ? PROD_BASE_URL : DEV_BASE_URL;
 
 // Endpoints
-export const USER_API_END_POINT = `${PROD_BASE_URL}/user`;
-export const JOB_API_END_POINT = `${PROD_BASE_URL}/job`;
-export const APPLICATION_API_END_POINT = `${PROD_BASE_URL}/application`;
-export const COMPANY_API_END_POINT = `${PROD_BASE_URL}/company`;
+export const USER_API_END_POINT = `${BASE_URL}/user`;
+export const JOB_API_END_POINT = `${BASE_URL}/job`;
+export const APPLICATION_API_END_POINT = `${BASE_URL}/application`;
+export const COMPANY_API_END_POINT = `${BASE_URL}/company`;
